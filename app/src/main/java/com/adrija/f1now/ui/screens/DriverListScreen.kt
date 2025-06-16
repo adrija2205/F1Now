@@ -3,6 +3,8 @@ package com.adrija.f1now.ui.screens
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -51,6 +53,12 @@ fun DriverListScreen(
                 value = searchQuery,
                 onValueChange = { searchQuery = it },
                 label = { Text("Search Drivers") },
+                leadingIcon = {
+                    Icon(
+                        imageVector = Icons.Default.Search,
+                        contentDescription = "Search Icon"
+                    )
+                },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(8.dp)
