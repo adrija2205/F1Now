@@ -1,30 +1,69 @@
-// com.adrija.f1now.ui.components.DriverCard.kt
 package com.adrija.f1now.ui.components
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.adrija.f1app.model.Drivers
+import coil.compose.rememberAsyncImagePainter
+import com.adrija.f1now.model.Drivers
 
 @Composable
 fun DriverCard(driver: Drivers, onClick: () -> Unit) {
     Card(
+        shape = RoundedCornerShape(16.dp),
         modifier = Modifier
             .fillMaxWidth()
-            .padding(8.dp)
+            .padding(horizontal = 12.dp, vertical = 6.dp)
             .clickable { onClick() },
-        elevation = CardDefaults.cardElevation(4.dp)
+        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
     ) {
-        Column(modifier = Modifier.padding(16.dp)) {
-            Text(
-                text = "${driver.givenName} ${driver.familyName}",
-                style = MaterialTheme.typography.titleMedium
+        Row(
+            modifier = Modifier
+                .padding(16.dp)
+                .fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            val painter = rememberAsyncImagePainter(driver.headshot_url ?: "")
+            Image(
+                painter = painter,
+                contentDescription = "Driver Image",
+                modifier = Modifier
+                    .size(56.dp)
+                    .clip(CircleShape)
+                    .background(MaterialTheme.colorScheme.primaryContainer),
+                contentScale = ContentScale.Crop
             )
-            Text(text = "Nationality: ${driver.nationality}")
-            Text(text = "Date of Birth: ${driver.dateOfBirth}")
+
+            Spacer(modifier = Modifier.width(16.dp))
+
+            Column {
+                Text(
+                    text = driver.full_name ?: "Unknown",
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold
+                )
+                Text(
+                    text = "Team: ${driver.team_name ?: "N/A"}",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = Color.Gray
+                )
+                Text(
+                    text = "Number: ${driver.driver_number ?: "N/A"}",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = Color.Gray
+                )
+            }
         }
     }
 }

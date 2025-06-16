@@ -1,18 +1,17 @@
-package com.example.f1app.network
+package com.example.f1now.network
 
-import com.adrija.f1now.data.F1NowService
+import com.adrija.f1now.data.F1ApiService
+
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitInstance {
-
-    private const val BASE_URL = "https://ergast.com/"
-
-    val api: F1NowService by lazy {
+    val api: F1ApiService by lazy {
         Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl("https://api.openf1.org/v1/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create(F1NowService::class.java)
+            .create(F1ApiService::class.java)
     }
 }
+

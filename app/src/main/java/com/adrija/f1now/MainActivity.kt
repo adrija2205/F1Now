@@ -11,16 +11,19 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.adrija.f1now.ui.screens.DriverListScreen
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.adrija.f1now.navigation.AppNavHost
 import com.adrija.f1now.ui.theme.F1NowTheme
+import com.example.f1now.viewmodel.DriverViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            setContent {
-                DriverListScreen()
+            F1NowTheme {
+                val viewModel: DriverViewModel = viewModel()
+                AppNavHost(viewModel = viewModel)
             }
         }
     }

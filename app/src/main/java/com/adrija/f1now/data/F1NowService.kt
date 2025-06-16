@@ -1,8 +1,12 @@
 package com.adrija.f1now.data
 
-import com.example.example.MRData
+import com.adrija.f1now.model.Drivers
 import retrofit2.http.GET
-interface F1NowService {
-    @GET("2023/drivers.json")
-    suspend fun getDrivers(): MRData
+
+interface F1ApiService {
+    @GET("drivers")
+    suspend fun getDrivers(): List<Drivers>
 }
+
+
+

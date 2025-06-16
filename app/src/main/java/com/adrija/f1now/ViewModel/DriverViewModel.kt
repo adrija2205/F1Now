@@ -1,17 +1,14 @@
-package com.example.f1app.viewmodel
+package com.example.f1now.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.adrija.f1app.model.Drivers
+import com.adrija.f1now.model.Drivers
 import com.adrija.f1now.repository.DriverRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
-
-
 class DriverViewModel : ViewModel() {
-
     private val repository = DriverRepository()
 
     private val _drivers = MutableStateFlow<List<Drivers>>(emptyList())
@@ -24,17 +21,14 @@ class DriverViewModel : ViewModel() {
     private fun fetchDrivers() {
         viewModelScope.launch {
             try {
-                val response = repository.getDrivers()
-                val driverList = response.MRData?.DriverTable?.Drivers
-                _drivers.value = driverList ?: emptyList()
+                _drivers.value = repository.getDrivers()
             } catch (e: Exception) {
                 e.printStackTrace()
             }
         }
     }
-    fun getDriverById(driverId: String?): Drivers? {
-        return drivers.value.find { it.driverId == driverId }
+
+    fun getDriverById(driverNumber: String?): Drivers? {
+        return _drivers.value.find { it.driver_number == driverNumber }
     }
-
 }
-

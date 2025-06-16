@@ -5,12 +5,12 @@ plugins {
 }
 
 android {
-    namespace = "com.adrija.F1now"
+    namespace = "com.adrija.f1now"
     compileSdk = 34
 
     defaultConfig {
         applicationId = "com.adrija.F1now" 
-        minSdk = 21
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -62,5 +62,7 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest:1.6.5")
     implementation ("androidx.navigation:navigation-compose:2.7.7")
     implementation("com.google.code.gson:gson:2.10.1")
-
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("io.coil-kt:coil-compose:2.4.0")
 }

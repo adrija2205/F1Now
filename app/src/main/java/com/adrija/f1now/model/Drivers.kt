@@ -1,19 +1,10 @@
-package com.adrija.f1app.model
+package com.adrija.f1now.model
 
-import android.os.Parcelable
-import com.google.gson.annotations.SerializedName
-import kotlinx.parcelize.Parcelize
-
-@Parcelize
-data class Drivers (
-
-  @SerializedName("driverId"        ) var driverId        : String? = null,
-  @SerializedName("permanentNumber" ) var permanentNumber : String? = null,
-  @SerializedName("code"            ) var code            : String? = null,
-  @SerializedName("url"             ) var url             : String? = null,
-  @SerializedName("givenName"       ) var givenName       : String? = null,
-  @SerializedName("familyName"      ) var familyName      : String? = null,
-  @SerializedName("dateOfBirth"     ) var dateOfBirth     : String? = null,
-  @SerializedName("nationality"     ) var nationality     : String? = null
-
-) : Parcelable
+data class Drivers(
+  val driver_number: String?,
+  val name_acronym: String?,
+  val broadcast_name: String?,
+  val full_name: String?,
+  val team_name: String?,
+  val headshot_url: String? = null
+)

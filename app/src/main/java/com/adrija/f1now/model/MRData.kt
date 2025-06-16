@@ -1,6 +1,4 @@
-package com.adrija.f1app.model
-
-
+package com.adrija.f1now.model
 import com.google.gson.annotations.SerializedName
 
 

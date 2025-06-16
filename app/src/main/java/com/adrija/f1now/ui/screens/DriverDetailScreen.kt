@@ -2,27 +2,26 @@ package com.adrija.f1now.ui.screens
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.f1app.viewmodel.DriverViewModel
+import com.adrija.f1now.model.Drivers
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DriverDetailScreen(driverId: String?, viewModel: DriverViewModel = viewModel()) {
-    val driver = remember { driverId?.let { viewModel.getDriverById(it) } }
-
+fun DriverDetailScreen(driver: Drivers) {
     Scaffold(
         topBar = {
-            SmallTopAppBar(
-                title = { Text("Driver Details") },
-                colors = TopAppBarDefaults.smallTopAppBarColors()
-            )
+            TopAppBar(title = { Text(driver.full_name ?: "Driver Details") })
         }
     ) { padding ->
-        Column(modifier = Modifier.padding(padding).padding(16.dp)) {
-            // content
+        Column(modifier = Modifier
+            .padding(padding)
+            .padding(16.dp)) {
+            Text("Number: ${driver.driver_number ?: "N/A"}")
+            Text("Name Acronym: ${driver.name_acronym ?: "N/A"}")
+            Text("Team: ${driver.team_name ?: "N/A"}")
         }
     }
 }

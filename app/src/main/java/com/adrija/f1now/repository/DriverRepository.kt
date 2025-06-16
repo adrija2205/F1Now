@@ -1,7 +1,10 @@
 package com.adrija.f1now.repository
 
-import com.example.f1app.network.RetrofitInstance
+import com.adrija.f1now.model.Drivers
+import com.example.f1now.network.RetrofitInstance
 
 class DriverRepository {
-    suspend fun getDrivers() = RetrofitInstance.api.getDrivers()
+    suspend fun getDrivers(): List<Drivers> {
+        return RetrofitInstance.api.getDrivers()
+    }
 }
