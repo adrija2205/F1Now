@@ -63,8 +63,16 @@ fun DriverListScreen(
                     .fillMaxWidth()
                     .padding(8.dp)
             )
-
+            LaunchedEffect(filteredDrivers) {
+                println("Filtered drivers count: ${filteredDrivers.size}")
+                filteredDrivers.forEachIndexed { index, driver ->
+                    println("$index: ${driver.full_name}")
+                }
+            }
             LazyColumn(
+                modifier = Modifier
+                    .weight(1f) // 👈 This ensures it takes only available space
+                    .fillMaxWidth(),
                 contentPadding = PaddingValues(vertical = 8.dp),
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             )  {

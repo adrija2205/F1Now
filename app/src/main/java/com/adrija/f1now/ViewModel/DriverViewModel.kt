@@ -1,5 +1,6 @@
 package com.example.f1now.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.adrija.f1now.model.Drivers
@@ -21,9 +22,12 @@ class DriverViewModel : ViewModel() {
     private fun fetchDrivers() {
         viewModelScope.launch {
             try {
-                _drivers.value = repository.getDrivers()
+                val response = repository.getDrivers()
+                val driverList = response.distinctBy { it.driver_number }
+                _drivers.value = driverList
+                Log.d("DriverViewModel", "Fetched ${driverList.size} drivers")
             } catch (e: Exception) {
-                e.printStackTrace()
+                Log.e("DriverViewModel", "Failed to fetch drivers", e)
             }
         }
     }
