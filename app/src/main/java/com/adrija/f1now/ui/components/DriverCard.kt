@@ -33,7 +33,7 @@ fun DriverCard(driver: Drivers, onClick: () -> Unit) {
             pressedElevation = 16.dp
         ),
         colors = CardDefaults.cardColors(
-            containerColor = Color(0xFF1C1C1E) // dark matte racing tone
+            containerColor = Color(0xFF1C1C1E)
         )
     ) {
         Row(
@@ -50,7 +50,7 @@ fun DriverCard(driver: Drivers, onClick: () -> Unit) {
                     .background(MaterialTheme.colorScheme.primaryContainer)
                     .border(
                         width = 1.dp,
-                        color = Color.Gray.copy(alpha = 0.4f), // subtle border
+                        color = Color.Gray.copy(alpha = 0.4f),
                         shape = CircleShape
                     )
             ) {
@@ -69,7 +69,7 @@ fun DriverCard(driver: Drivers, onClick: () -> Unit) {
                     text = driver.full_name ?: "Unknown",
                     style = MaterialTheme.typography.titleMedium.copy(
                         fontWeight = FontWeight.ExtraBold,
-                        color = Color(0xFFEC1C24), // Ferrari red
+                        color = Color(0xFFEC1C24),
                         fontSize = 20.sp
                     )
                 )

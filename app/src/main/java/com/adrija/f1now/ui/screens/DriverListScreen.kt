@@ -71,7 +71,7 @@ fun DriverListScreen(
             }
             LazyColumn(
                 modifier = Modifier
-                    .weight(1f) // 👈 This ensures it takes only available space
+                    .weight(1f)
                     .fillMaxWidth(),
                 contentPadding = PaddingValues(vertical = 8.dp),
                 verticalArrangement = Arrangement.spacedBy(8.dp)

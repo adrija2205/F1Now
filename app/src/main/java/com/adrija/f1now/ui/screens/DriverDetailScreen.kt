@@ -58,9 +58,8 @@ fun DriverDetailScreen(driver: Drivers) {
             DetailText(title = "Full Name", value = driver.full_name)
             DetailText(title = "Driver Number", value = driver.driver_number?.toString())
             DetailText(title = "Team", value = driver.team_name)
-            DetailText(title = "Date of Birth", value = driver.date_of_birth)
-            DetailText(title = "Nationality", value = driver.nationality)
-            DetailText(title = "Permanent Number", value = driver.permanent_number?.toString())
+            DetailText(title = "Country Code", value = driver.country_code)
+
         }
     }
 }

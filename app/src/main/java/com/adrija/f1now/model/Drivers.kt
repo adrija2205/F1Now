@@ -7,7 +7,5 @@ data class Drivers(
   val full_name: String? = null,
   val team_name: String? = null,
   val headshot_url: String? = null,
-  val date_of_birth: String? = null,
-  val nationality: String? = null,
-  val permanent_number: String? = null
+  val country_code: String? = null
 )
