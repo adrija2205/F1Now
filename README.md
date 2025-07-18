@@ -30,8 +30,6 @@ F1Now is a sleek, racing-themed Android app that displays a list of current Form
 
 | Driver List Screen | Driver Detail Screen |
 |--------------------|----------------------|
-| ![Driver List](![f1ss](https://github.com/user-attachments/assets/45d1acf3-0d0f-4b51-9c51-8f6fae596d55)
-) | ![Driver Detail](![f1ss](https://github.com/user-attachments/assets/cc16a2d8-0a1c-4d1d-ac14-043f28a7d7a5)
-) |
+| ![Driver List]![f1ss](https://github.com/user-attachments/assets/45d1acf3-0d0f-4b51-9c51-8f6fae596d55) | ![Driver Detail]![f1ss2](https://github.com/user-attachments/assets/347fcee7-8aeb-4c3b-a71b-88e3e1788bd4)|
 
 
